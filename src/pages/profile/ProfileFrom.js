@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { getUserById } from "../../api/Api"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+import { getUserById } from "../../api/Api";
 
 export default function Profile(props) {
-  const [userProfile, setUserProfile] = useState([])
+  const [userProfile, setUserProfile] = useState([]);
 
 //   useEffect(() => {
 //     fetchUser();
@@ -20,15 +21,13 @@ export default function Profile(props) {
  
 
 const fetchUser = async () => {
-    await getUserById(localStorage.getItem("user_id")).then((res) => {
+    await getUserById(props.match.params.id).then((res) => {
       if (res.status === "success") {
         setUserProfile(res.data);
        
       }
     });
   };
-
-
   useEffect(() => {
     fetchUser();
   }, []);
@@ -59,11 +58,11 @@ const fetchUser = async () => {
                       Edit Profile
                     </Link>
                    </div>
-            <div className="btn-edit">
+            {/* <div className="btn-edit">
                     <Link to={`/myproduct/${userProfile._id}`} className="btn btn-outline-light text-black-50 border">
                       My Product
                     </Link>
-                  </div>
+                  </div> */}
             </div>
           }
         </div>

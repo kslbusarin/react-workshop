@@ -18,7 +18,7 @@ const route = {
   register: '/register',
   login: '/login',
   product: '/product',
-  profile: '/profile',
+  profile: '/profile/:id',
   setting: '/setting',
   edit: '/edit/:id',
   myproduct: '/myproduct/:id',

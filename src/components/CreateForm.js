@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 export default function CreateForm(props) {
-  const [userid, setUserid] = useState('')
+//   const [userid, setUserid] = useState('')
   const [title, setTitle] = useState(0)
   const [detail, setDetail] = useState(0)
   const [stock, setStock] = useState(0)
@@ -12,7 +12,7 @@ export default function CreateForm(props) {
   const save = async (e) => {
     e.preventDefault()
     let user = {
-        user_id: userid,
+        user_id: localStorage.getItem("user_id"),
         title: title,
         detail: detail,
         stock: stock,
@@ -25,7 +25,7 @@ export default function CreateForm(props) {
   const edit = async (e) => {
     e.preventDefault()
     let user = {
-        user_id: userid,
+        // user_id: userid,
         title: title,
         detail: detail,
         stock: stock,
@@ -36,7 +36,7 @@ export default function CreateForm(props) {
 
   useEffect(() => {
     if (props.check === "Edit") {
-        setUserid(props.user.user_id)
+        // setUserid(props.user.user_id)
         setTitle(props.user.title)
         setDetail(props.user.detail)
         setStock(props.user.stock)
@@ -48,10 +48,10 @@ export default function CreateForm(props) {
   return (
     <div>
       <form onSubmit={props.check === "Edit" ? edit : save}>
-        <div class="form-group">
+        {/* <div class="form-group">
           <label for="userid">userid</label>
           <input type="text" value={userid} onChange={(e) => setUserid(e.target.value)} class="form-control" id="userid" aria-describedby="emailHelp"/>
-        </div>
+        </div> */}
         <div class="form-group">
           <label for="title">title</label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} class="form-control" id="title"/>
@@ -68,7 +68,7 @@ export default function CreateForm(props) {
           <label for="price">price</label>
           <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} class="form-control" id="price"/>
         </div>
-        <button type="submit" class="btn btn-success btn-block">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
       </form>
     </div>
   )

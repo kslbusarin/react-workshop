@@ -1,10 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 
 
 export default function ProductTable(props) {
+  const [keyword, setKeyword] = useState("");
+
     return (
         <div>
+            <div>
+            <div class="row">
+                <div class="col" style={{textAlign:'left'}}>
+                <form className="form-inline my-2 my-lg-0 mb-3 ">
+                <input onChange={(event) =>setKeyword(event.target.value)} className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
+               </form>
+                </div>
+                <div class="col" style={{textAlign:'right'}}>
+                <Link type="button" to='/product' className="btn btn-outline-success my-2 my-sm-0">
+                      All Product
+                </Link>
+                </div>
+            </div>
+            </div><br/>
             <table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -20,7 +36,16 @@ export default function ProductTable(props) {
         </thead>
         <tbody>
           {
-            props.user.map((item, index) => (
+            props.user
+            .filter((item) => {
+                return (
+                  item.title == keyword ||
+                  item.detail == keyword ||
+                  item.stock == keyword ||
+                  item.price == keyword
+                );
+              })
+            .map((item, index) => (
               <tr>
               <th scope="row">{ index + 1 }</th>
               <td>{item.title}</td>

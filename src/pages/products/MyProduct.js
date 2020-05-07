@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Back from '../../components/Back'
 import ProductTable from '../../components/myProductTable'
-import {getAllProduct, deleteProduct} from '../../api/Api'
+import {getAllProduct, deleteProduct, createProduct} from '../../api/Api'
 import { Link } from 'react-router-dom'
+import AddForm from '../../components/CreateForm'
 
 
 export default function MyProduct(props) {
@@ -30,26 +31,28 @@ const removeProduct = async (id) => {
      }
    }
 
+   
+
+  const save = async (product) => {
+    await createProduct(product).then((res) => {
+      if (res.status === "success") {
+        fetchUser();
+      }
+    });
+  };
+
     return (
         <div>
             <h1 style={{textAlign:'center'}}>My Product</h1> 
-            <div class="row">
-                <div class="col" style={{textAlign:'left'}}>
-                <form className="form-inline my-2 my-lg-0 mb-3 ">
-                <input  className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"/>
-               </form>
-                </div>
-                <div class="col" style={{textAlign:'right'}}>
-                <Link type="button" to='/product' className="btn btn-outline-success my-2 my-sm-0">
-                      All Product
-                </Link>
-                </div>
+            <hr/>
+            <div>
+                <h3>Add Product</h3>
+                <AddForm  check="Create" save={save}/>
             </div>
             <hr/>
             <div>
             {/* <Back url="/product" history={props.history}/> */}
             <ProductTable user={user} delete={removeProduct}/>
-
             </div>
         </div>
     )

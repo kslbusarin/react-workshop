@@ -95,3 +95,12 @@ export const register = (user) => {
     })
   }
 
+
+  export const createProduct = (product) => {
+    return new Promise((resolve, reject) => {
+      axios.post(url + "/products", product).then((res) => {
+        resolve(res.data);
+      });
+    });
+  };
+

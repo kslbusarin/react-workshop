@@ -1,24 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Home from './pages/home/Home'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import Header from './components/Header'
+import Register from './pages/register/Register'
+import Loginpage from './pages/login/Login'
+import AllProduct from './pages/products/AllProduct'
+import Profile from './pages/profile/ProfileFrom'
+import EditProfile from './pages/profile/EditProfile'
+import PrivateRoute from './helper/PrivateRoute'
+import MyProduct from './pages/products/MyProduct'
+import EditProduct from './pages/products/EditProduct'
+
+const route = {
+  home: '/home',
+  register: '/register',
+  login: '/login',
+  product: '/product',
+  profile: '/profile',
+  setting: '/setting',
+  edit: '/edit/:id',
+  myproduct: '/myproduct/:id',
+  editproduct: '/editproduct/:id'
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+      <div className="container">
+        <Switch>
+          <Redirect exact from="/" to={route.login}></Redirect>
+          <PrivateRoute path ={route.home} component={Home}></PrivateRoute>
+          <Route path ={route.register} component={Register}></Route>
+          <Route path ={route.login} component={Loginpage}></Route>
+          {/* <PrivateRoute path ={route.product} component={AllProduct}></PrivateRoute> */}
+          <Route path ={route.product} component={AllProduct}></Route>
+          <Route path ={route.myproduct} component={MyProduct}></Route>
+
+
+          <PrivateRoute path ={route.profile} component={Profile}></PrivateRoute>
+          <PrivateRoute path ={route.edit} component={EditProfile}></PrivateRoute>
+          {/* <PrivateRoute path ={route.myproduct} component={MyProduct}></PrivateRoute>*/}
+          <PrivateRoute path ={route.editproduct} component={EditProduct}></PrivateRoute>
+
+
+
+
+        </Switch>
+      </div>
     </div>
   );
 }

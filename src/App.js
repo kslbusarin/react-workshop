@@ -12,6 +12,7 @@ import EditProfile from './pages/profile/EditProfile'
 import PrivateRoute from './helper/PrivateRoute'
 import MyProduct from './pages/products/MyProduct'
 import EditProduct from './pages/products/EditProduct'
+import ProductDetail from './pages/products/ProductDetail'
 
 const route = {
   home: '/home',
@@ -22,7 +23,8 @@ const route = {
   setting: '/setting',
   edit: '/edit/:id',
   myproduct: '/myproduct/:id',
-  editproduct: '/editproduct/:id'
+  editproduct: '/editproduct/:id',
+  productDetail: '/productDetail/:id'
 }
 
 function App() {
@@ -40,9 +42,7 @@ function App() {
           <PrivateRoute path ={route.edit} component={EditProfile}></PrivateRoute>
           <PrivateRoute path ={route.myproduct} component={MyProduct}></PrivateRoute>
           <PrivateRoute path ={route.editproduct} component={EditProduct}></PrivateRoute>
-
-
-
+          <PrivateRoute path ={route.productDetail} component={ProductDetail}></PrivateRoute>
 
         </Switch>
       </div>

@@ -6,15 +6,6 @@ export default function EditProduct(props) {
     const [user, setUser] = useState();
     var id = localStorage.getItem('Id');
 
-
-    // useEffect(() => {
-    //   const fetchApi = async () => {
-    //     let result = await getProductById(props.match.params.id);
-    //     setUser(result.data);
-    //   };
-    //   fetchApi();
-    // }, []);
-
     const fetchApi = async () => {
         await getAllProduct().then((res) => {
           let data = res.data.filter((item) => {

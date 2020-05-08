@@ -29,7 +29,7 @@ export default function ProductTable(props) {
             <th scope="col">Detail</th>
             <th scope="col">Stock</th>
             <th scope="col">Price</th>
-            {/* <th scope="col">Action</th> */}
+            <th scope="col">Action</th>
 
 
           </tr>
@@ -54,9 +54,9 @@ export default function ProductTable(props) {
               <td>{item.price}</td>
 
               <td>
-                {/* <Link to={`/productDetail/${item._id}`}>
+                <Link to={`/productDetail/${item._id}`}>
                   <span style={{ color: "green" }}>Detail</span>
-                </Link> */}
+                </Link>
                 {/* | */}
                 {/* <span onClick={() => props.delete(item._id)} style={{ color: "red", cursor: 'pointer' }}>Delete</span> */}
               </td>

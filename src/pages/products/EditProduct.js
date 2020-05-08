@@ -4,6 +4,8 @@ import CreateForm from '../../components/CreateForm'
 
 export default function EditProduct(props) {
     const [user, setUser] = useState();
+    var id = localStorage.getItem('Id');
+
 
     // useEffect(() => {
     //   const fetchApi = async () => {
@@ -29,7 +31,7 @@ export default function EditProduct(props) {
     const edit = async (user) => {
       let edit = await editProductById(props.match.params.id, user)
       if (edit.status === "success") {
-        props.history.push('/product')
+        props.history.push(`/myproduct/${id}`)
       } else {
         alert(edit.message)
       }

@@ -10,6 +10,9 @@ export default function MyProduct(props) {
 
     const [user, setUser] = useState([])
     var id = localStorage.getItem('Id');
+
+
+    
     // console.log(id)
   // const fetchUser = async () => {
   //   let result = await getAllProduct()
@@ -17,26 +20,26 @@ export default function MyProduct(props) {
   //   setUser(result.data)
   // }
 
-  // const fetchUser = async () => {
-  //   await getAllProduct().then((res) => {
-  //     if (res.status === "success") {
-  //       let data = res.data.filter((item) => {
-  //         return item.user_id === props.match.params.id
-          
-  //       });
-  //       setUser(data);
-  //     }
-  //   });
-  // };
-
   const fetchUser = async () => {
     await getAllProduct().then((res) => {
-      let data = res.data.filter((item) => {
-        return item.user_id === props.match.params.id;
-      });
-      setUser(data);
+      if (res.status === "success") {
+        let data = res.data.filter((item) => {
+          return item.user_id === localStorage.getItem('Id')
+          
+        });
+        setUser(data);
+      }
     });
   };
+
+  // const fetchUser = async () => {
+  //   await getAllProduct().then((res) => {
+  //     let data = res.data.filter((item) => {
+  //       return item.user_id === props.match.params.id;
+  //     });
+  //     setUser(data);
+  //   });
+  // };
 
   useEffect(() => {
     fetchUser()

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductTable(props) {
   const [keyword, setKeyword] = useState("");
-
+  var id = localStorage.getItem('Id');
     return (
         <div>
             <div>
@@ -15,7 +15,7 @@ export default function ProductTable(props) {
                </form>
                 </div>
                 <div class="col" style={{textAlign:'right'}}>
-                <Link type="button" to={`/myproduct/${props.user._id}`} className="btn btn-outline-success my-2 my-sm-0">
+                <Link type="button" to={`/myproduct/${id}`} className="btn btn-outline-success my-2 my-sm-0">
                       My Product
                 </Link>
                 </div>

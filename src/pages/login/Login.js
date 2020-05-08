@@ -17,6 +17,7 @@ export default function Login(props) {
         if(result.status === "success"){
         //   localStorage.setItem('Id', result.data._id);
           setTokenLogin(result.data._id);
+          localStorage.setItem('Id', result.data._id);
         //  props.history.push('/profile')
         props.history.push(`/profile/${result.data._id}`)
         //  console.log(result.data.name)

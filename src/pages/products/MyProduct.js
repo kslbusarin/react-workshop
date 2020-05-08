@@ -94,6 +94,7 @@ const removeProduct = async (id) => {
         <div>
             <h1 style={{textAlign:'center'}}>My Product</h1> 
             <hr/>
+            <h3>Add MyProduct</h3>
             <AddForm save={save}/>
             <div>
               <hr/>

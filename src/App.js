@@ -36,8 +36,6 @@ function App() {
           <Route path ={route.register} component={Register}></Route>
           <Route path ={route.login} component={Loginpage}></Route>
           <PrivateRoute path ={route.product} component={AllProduct}></PrivateRoute>
-          {/* <Route path ={route.product} component={AllProduct}></Route> */}
-          {/* <Route path ={route.myproduct} component={MyProduct}></Route> */}
           <PrivateRoute path ={route.profile} component={Profile}></PrivateRoute>
           <PrivateRoute path ={route.edit} component={EditProfile}></PrivateRoute>
           <PrivateRoute path ={route.myproduct} component={MyProduct}></PrivateRoute>

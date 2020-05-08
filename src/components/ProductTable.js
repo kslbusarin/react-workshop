@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductTable(props) {
   const [keyword, setKeyword] = useState("");
-  var id = localStorage.getItem('Id');
+  var id = localStorage.getItem('Id')
     return (
         <div>
             <div>

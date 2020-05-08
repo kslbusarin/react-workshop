@@ -15,7 +15,7 @@ import { getUserById } from '../../api/Api'
 
 export default function Home(props) {
 //   const [userProfile, setUserProfile] = useState([])
-var id = localStorage.getItem('Id');
+var id = localStorage.getItem('Id')
 
 
 //   const goToProfile = async () => {
@@ -31,12 +31,8 @@ var id = localStorage.getItem('Id');
     return (
        <div>
 
-        <div className="home" style={{textAlign: 'center'}}>
-            <h1>Furniture</h1>
-            <div style={{textAlign: 'right'}}>
-            <Link type="button" class="btn btn-success" to={`/profile/${id}`}>My Profile</Link>
-
-            </div><br/>
+        <div className="home" style={{textAlign: 'center'}}><br/>
+            <h1>Furniture</h1><br/>
             <div class="container">
                 
                 <div class="row">

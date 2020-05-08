@@ -33,13 +33,29 @@ const removeProduct = async (id) => {
 
    
 
-  const save = async (product) => {
-    await createProduct(product).then((res) => {
+  const [title, setTitle] = useState()
+  const [detail, setDetail] = useState()
+  const [stock, setStock] = useState()
+  const [price, setPrice] = useState()
+
+
+
+  const save = async (e) => {
+    e.preventDefault()
+    let user = {
+        // user_id: props.params.id,
+        title: title,
+        detail: detail,
+        stock: stock,
+        price: price
+    }
+    await createProduct(user).then((res) => {
       if (res.status === "success") {
         fetchUser();
       }
     });
-  };
+  }
+
 
     return (
         <div>
@@ -47,7 +63,32 @@ const removeProduct = async (id) => {
             <hr/>
             <div>
                 <h3>Add Product</h3>
-                <AddForm  check="Create" save={save}/>
+                {/* <AddForm  check="Create" save={save}/> */}
+
+                <form onSubmit={save}>
+        {/* <div class="form-group">
+          <label for="userid">userid</label>
+          <input type="text" value={userid} onChange={(e) => setUserid(e.target.value)} class="form-control" id="userid" aria-describedby="emailHelp"/>
+        </div> */}
+        <div class="form-group">
+          <label for="title">title</label>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} class="form-control" id="title"/>
+        </div>
+        <div class="form-group">
+          <label for="detail">detail</label>
+          <input type="text" value={detail} onChange={(e) => setDetail(e.target.value)} class="form-control" id="detail"/>
+        </div>
+        <div class="form-group">
+          <label for="stock">stock</label>
+          <input type="number" value={stock} onChange={(e) => setStock(e.target.value)} class="form-control" id="stock"/>
+        </div>
+        <div class="form-group">
+          <label for="price">price</label>
+          <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} class="form-control" id="price"/>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+                
             </div>
             <hr/>
             <div>

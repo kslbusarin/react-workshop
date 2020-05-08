@@ -96,9 +96,9 @@ export const register = (user) => {
   }
 
 
-  export const createProduct = (product) => {
+  export const createProduct = (user) => {
     return new Promise((resolve, reject) => {
-      axios.post(url + "/products", product).then((res) => {
+      axios.post(url+"/products", user).then((res) => {
         resolve(res.data);
       });
     });

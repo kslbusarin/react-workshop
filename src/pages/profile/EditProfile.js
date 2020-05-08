@@ -49,7 +49,6 @@ export default function EditProfile(props) {
   return (
     <div style={{}}>
       <div className="editp-area pt-4">
-        <div className="card" style={{ width: "50rem", margin: "0 auto" }}>
           <div className="card-body">
             <div className="content-top">
               <h1>Edit Profile</h1>
@@ -81,13 +80,12 @@ export default function EditProfile(props) {
                   <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)}
                     className="form-control" id="salary" />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-success">
                   UPDATE
                 </button>
               </form>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

@@ -54,15 +54,15 @@ const fetchUser = async () => {
                 </div>
               </div>
               <div className="btn-edit">
-                    <Link to={`/edit/${userProfile._id}`} className="btn btn-outline-light text-black-50 border">
+                    <Link to={`/edit/${userProfile._id}`} className="btn btn-outline-light btn-success">
                       Edit Profile
                     </Link>
                    </div>
-            {/* <div className="btn-edit">
-                    <Link to={`/myproduct/${userProfile._id}`} className="btn btn-outline-light text-black-50 border">
+            <div className="btn-edit">
+                    <Link to={`/myproduct/${userProfile._id}`} className="btn btn-outline-light btn-success">
                       My Product
                     </Link>
-                  </div> */}
+                  </div>
             </div>
           }
         </div>

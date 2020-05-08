@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react'
 
 export default function CreateForm(props) {
 //   const [userid, setUserid] = useState('')
-  const [title, setTitle] = useState(0)
-  const [detail, setDetail] = useState(0)
-  const [stock, setStock] = useState(0)
-  const [price, setPrice] = useState(0)
+  const [title, setTitle] = useState()
+  const [detail, setDetail] = useState()
+  const [stock, setStock] = useState()
+  const [price, setPrice] = useState()
 
 
 
   const save = async (e) => {
     e.preventDefault()
     let user = {
-        user_id: localStorage.getItem("user_id"),
+        user_id: props.userProfile._id,
         title: title,
         detail: detail,
         stock: stock,

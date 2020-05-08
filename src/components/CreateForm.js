@@ -9,10 +9,11 @@ export default function CreateForm(props) {
 
 
 
+
   const save = async (e) => {
     e.preventDefault()
     let user = {
-        user_id: props.userProfile._id,
+        user_id: localStorage.getItem('Id'),
         title: title,
         detail: detail,
         stock: stock,
